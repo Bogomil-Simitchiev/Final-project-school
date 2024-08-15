@@ -1,0 +1,34 @@
+<main class="users-content">
+    {{#if registeredUsers}}
+    <h2>Всички регистрирани потребители <i class="fa fa-users" aria-hidden="true"></i></h2>
+    <table class="user-table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Име</th>
+                <th>Имейл</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each registeredUsers}}
+            <tr>
+                {{#if this.isConsultant}}
+                <td>{{this._id}}</td>
+                <td>{{this.username}}</td>
+                <td>{{this.email}} <span><a id="deleteUser" href="/delete/users/{{this._id}}">Изтрий</a></span></td>
+
+                {{else}}
+                <td>{{this._id}}</td>
+                <td>{{this.username}}</td>
+                <td>{{this.email}} <span><a id="consultantUser" href="/consultant/users/{{this._id}}">Направи консултант</a></span>  <span><a id="deleteUser" href="/delete/users/{{this._id}}">Изтрий</a></span></td>
+
+                {{/if}}
+            </tr>
+            {{/each}}
+        </tbody>
+        {{else}}
+        <h1>Няма регистрирани потребители</h1>
+        {{/if}}
+    </table>
+</main>

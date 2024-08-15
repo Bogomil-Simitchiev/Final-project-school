@@ -1,0 +1,20 @@
+{{#with garment}}
+<main>
+  <h1>Изтрий</h1>
+  <div class="form" id="divForm">
+    <form action='/delete/product/{{_id}}' method="POST">
+      <label for="name">Дреха:</label>
+      <input type="text" id="name" name="name" value="{{name}}" disabled>
+      <label for="name">Описание:</label>
+      <textarea id="name" name="description" disabled>{{description}}</textarea>
+      <label for="image">Линк към снимка:</label>
+      <input type="text" id="image" name="imageUrl" value="{{imageUrl}}" disabled>
+      <label for="price">Цена:</label>
+      <input type="text" id="price" name="price" value="{{price}}" disabled>
+       <label for="color">Цвят:</label>
+      <input type="text" id="color" name="color" value="{{color}}" disabled>
+      <input type="submit" value="Изтрий дрехата">
+    </form>
+  </div>
+</main>
+{{/with}}

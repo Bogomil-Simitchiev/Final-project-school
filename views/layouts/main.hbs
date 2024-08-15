@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link href="/static/css/site.css" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <script src="https://kit.fontawesome.com/df9e4c77de.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="topnav" id="myTopnav">
+            <a href="/">Начало</a>
+            <a href="/about">За магазина</a>
+            <a href="/males">Мъже</a>
+            <a href="/females">Жени</a>
+            <a href="/kids">Деца</a>
+            {{#if hasUser}}
+            {{#if user.isAdmin}}
+            <a href="/admin/users">Потребители</a>
+            {{/if}}
+            {{#if user.isConsultant}}
+            <a href="/orders">Клиенти</a>
+            <a href="/myOrders">Моите поръчки</a>
+            <a href="/create">Добави дреха</a>
+            {{else}}
+            <a href="/myOrders">Моите поръчки</a>
+            {{/if}}
+            <a href="/logout">Изход</a>
+            <div class="welcomeSpan">
+                <span id="cartTag" onclick="changePage()"><i class="fa-solid fa-cart-shopping"></i></span>
+                <span>Здравейте, {{user.username}}!</span>
+            </div>
+            {{else}}
+            <a href="/login">Вход</a>
+            <a href="/register">Регистрация</a>
+            {{/if}}
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+
+        </header>
+        {{#if errors}}
+        <div id="notifications">
+            {{#each errors}}
+            <p>{{msg}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+        <br />
+        {{#if noLogoShow}}
+        {{{body}}}
+        {{else}}
+        <img class="logo" src="/static/images/logo.png" class="center">
+        {{{body}}}
+        {{/if}}
+
+    </div>
+    <footer>@Мода Лукс: онлайн магазин за дрехи</footer>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+        function changePage() {
+            location.href = "/cart";
+        }
+    </script>
+</body>
+
+</html>

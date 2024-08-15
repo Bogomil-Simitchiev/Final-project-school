@@ -1,0 +1,28 @@
+<main>
+    <h1>Попълни данни</h1>
+    <div class="form" id="divForm">
+        <form action='/order' method="POST">
+
+            <label for="city">Град:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="number" id="phone" name="phone" required>
+
+
+            <label for="street">Улица:</label>
+            <input type="text" id="street" name="street" required>
+            <br />
+
+            <label for="place">Избор (До вкъщи или до офис):</label>
+            <select name="place">
+                <option value="До адрес">До адрес</option>
+                <option value="До офис на Speedy">До офис на Speedy</option>
+                <option value="До офис на Еконт">До офис на Еконт</option>
+            </select>
+            <br />
+
+            <input type="submit" value="Завърши поръчката">
+        </form>
+    </div>
+</main>

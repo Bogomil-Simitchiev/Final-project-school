@@ -1,0 +1,31 @@
+<h1>Количка - Обща цена: {{totalPrice}} лв.</h1>
+<div class="cart">
+    {{#each cartItems}}
+    <form action='/finishOrder'>
+        <a href="/details/{{_id}}">
+            <div class="item">
+                <p>{{name}} - брой {{count}}</p>
+                <p class="size">Размер - {{size}}</p>
+                <p>Цена - {{price}} лв.</p>
+
+                <div class="cartIcons">
+                    <a id="removeItem" style="font-size: 25px;" href="/remove/item/{{_id}}/{{cartId}}"><i
+                            class="fa-solid fa-trash"></i></a>
+
+                    <a id="decreaseItem" style="font-size: 25px;" href="/decrease/item/{{_id}}/{{cartId}}"><i
+                            class="fa-solid fa-minus"></i></a>
+
+                    <a id="increaseItem" style="font-size: 25px;" href="/increase/item/{{_id}}/{{cartId}}"><i
+                            class="fa-solid fa-plus"></i></a>
+                </div>
+            </div>
+        </a>
+        {{else}}
+        <h2>Няма продукти в количката</h2>
+        {{/each}}
+
+        {{#if cartItems}}
+        <button id="cartBtn">Завършване</button>
+        {{/if}}
+    </form>
+</div>

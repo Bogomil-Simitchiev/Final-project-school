@@ -1,0 +1,33 @@
+<main>
+  <h1>Добави дреха</h1>
+  <div class="form" id="divForm">
+    <form action='/create' method="POST">
+      <label for="name">Дреха:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="name">Описание:</label>
+      <textarea id="name" name="description" required></textarea>
+      <label id="linkForImage" for="image">Линк към снимка:</label>
+      <input type="text" id="image" name="imageUrl" required>
+      <label for="price">Цена:</label>
+      <input type="text" id="price" name="price" required>
+      <label for="color">Цвят:</label>
+      <input type="text" id="color" name="color" required>
+
+      <label id="typeOfGarmentLabel" for="typeOfGarment">Изберете за кой е дрехата:</label>
+      <br/>
+      <br/>
+
+      <input type="radio" id="male" name="typeOfGarment" value="male">
+      <label id="maleLabel" for="male">Мъж</label>
+
+      <input type="radio" id="female" name="typeOfGarment" value="female">
+      <label id="femaleLabel" for="female">Жена</label>
+
+      <input type="radio" id="kid" name="typeOfGarment" value="kid">
+      <label id="kidLabel" for="kid">Дете</label>
+      <br />
+      <br />
+      <input type="submit" value="Създай">
+    </form>
+  </div>
+</main>

@@ -1,0 +1,50 @@
+<main>
+  <h1>Добре дошли в "Мода Лукс"</h1>
+  <h3>Дрехата на всеки един българин</h3>
+  <br />
+
+
+  <form action="/" method="GET" align="center">
+    <span>Потърси дреха:
+    </span>
+    <input type="text" class="search" name="search" placeholder="Search..." value="{{query.search}}"><br />
+    <span>Потърси по цена:
+    </span>
+    <input type="number" name="from" class="difficulty" placeholder="from price" value="{{query.from}}">
+    <span>-</span>
+    <input type="number" name="to" class="difficulty" placeholder="to price" value="{{query.to}}"><br />
+    <input type="submit" value="търси">
+  </form>
+  <br />
+  <br />
+  <hr width="75%"/>
+  <div id="garments">
+    {{#each garments}}
+    {{> garmentPreview}}
+    {{else}}
+    <h2>Няма налични артикули...</h2>
+    {{/each}}
+  </div>
+  <br />
+  <div class="pagination">
+    {{#if mustHaveNextOrPrevious}}
+
+    {{#if isTherePreviuosPage}}
+    <a href="/?page={{previousPage}}"><i class="fa-solid fa-circle-left"></i>
+      Предишни артикули</i></a>
+    {{/if}}
+
+    {{#if isThereNextPage}}
+    <a href="/?page={{currentPage}}">Следващи артикули <i
+        class="fa-solid fa-circle-right"></i></a>
+    {{/if}}
+
+    {{/if}}
+
+
+
+  </div>
+
+</main>
+
+<script src="/static/js/app.js"></script>

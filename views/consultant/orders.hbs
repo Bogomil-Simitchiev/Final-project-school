@@ -1,0 +1,54 @@
+<h1>Клиентски Поръчки</h1>
+<br />
+<div class="cart">
+    {{!-- {{#if currentConsultantOrders}} --}}
+    {{#each currentConsultantOrders}}
+    {{#if isOrderRemovedFromTheConsultant}}
+    <a href="/details/{{_id}}">
+        <div class="item">
+            <p>{{name}} - брой {{count}}</p>
+            <p class="size">Размер - {{size}}</p>
+            <p id="price">Цена - {{price}} лв.</p>
+            <p id="customer">Клиент - {{customerName}}</p>
+            <p>Поръчката е отхвърлена</p>
+        </div>
+    </a>
+    {{else}}
+
+    {{#if isOrderApprovedFromTheConsultant}}
+    <a href="/details/{{_id}}">
+        <div class="item">
+            <p>{{name}} - брой {{count}}</p>
+            <p class="size">Размер - {{size}}</p>
+            <p id="price">Цена - {{price}} лв.</p>
+            <p id="customer">Клиент - {{customerName}}</p>
+            <p>Поръчката е приета</p>
+        </div>
+    </a>
+    {{else}}
+    <a href="/details/{{_id}}">
+        <div class="item">
+            <p>{{name}} - брой {{count}}</p>
+            <p class="size">Размер - {{size}}</p>
+            <p id="price">Цена - {{price}} лв.</p>
+            <p id="customer">Клиент - {{customerName}}</p>
+            <a id="confirmOrder" href="/orders/accept/item/{{_id}}/{{cartId}}">Приеми поръчката</a>
+            <a id="rejectOrder" href="/orders/remove/item/{{_id}}/{{cartId}}">Отхвърли поръчката</a>
+        </div>
+    </a>
+    {{/if}}
+
+    {{/if}}
+
+    {{/each}}
+
+    {{!-- {{/if}} --}}
+
+    {{!-- {{#if isThereOrder}}
+    <h2>Няма поръчки</h2>
+    {{else}}
+
+    {{/if}} --}}
+
+
+</div>

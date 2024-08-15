@@ -1,0 +1,41 @@
+<h1>Моите Поръчки</h1>
+<br />
+<div class="cart">
+
+    {{#each currentConsultantOrders}}
+    {{#if isOrderRemovedFromTheConsultant}}
+    <a href="/details/{{_id}}">
+        <div class="item">
+            <p>{{name}} - брой {{count}}</p>
+            <p class="size">Размер - {{size}}</p>
+            <p id="price">Цена - {{price}} лв.</p>
+            <p>Поръчката е отхвърлена <i id="removeItem" class="fa fa-close"></i></p>
+        </div>
+    </a>
+    {{else}}
+    {{#if isOrderApprovedFromTheConsultant}}
+    <a href="/details/{{_id}}">
+        <div class="item">
+            <p>{{name}} - брой {{count}}</p>
+            <p class="size">Размер - {{size}}</p>
+            <p id="price">Цена - {{price}} лв.</p>
+            <p>Поръчката е приета <i id="acceptItem" class="fa fa-check" aria-hidden="true"></i></p>
+        </div>
+    </a>
+    {{else}}
+    <a href="/details/{{_id}}">
+        <div class="item">
+            <p>{{name}} - брой {{count}}</p>
+            <p class="size">Размер - {{size}}</p>
+            <p id="price">Цена - {{price}} лв.</p>
+            <p>Поръчката е в изчакване <i id="pendingItem" class="fa fa-clock-o" aria-hidden="true"></i></p>
+        </div>
+    </a>
+
+    {{/if}}
+    {{/if}}
+
+    {{else}}
+    <h2>Няма поръчки</h2>
+    {{/each}}
+</div>

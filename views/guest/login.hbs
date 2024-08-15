@@ -1,0 +1,17 @@
+<main>
+    <h1>Вход <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
+    <div class="form" id="loginForm">
+        <form action="/login" method="POST">
+            <label for="email">Имейл:</label>
+            <input type="email" id="email" name="email" value="{{data.email}}" required>
+
+            <label for="password">Парола:</label>
+            <input type="password" id="password" name="password" required>
+            <p>
+                Нямаш акаунт?
+                <a style="color: rgb(47, 129, 154);" href="/register">Създай си акаунт</a>
+            </p>
+            <input type="submit" value="Влез">
+        </form>
+    </div>
+</main>

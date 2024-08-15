@@ -1,0 +1,21 @@
+<main>
+    <h1>Регистрация <i class="fa-solid fa-user-plus"></i></h1>
+    <div class="form" id="registerForm">
+        <form action="/register" method="POST">
+            <label for="email">Имейл:</label>
+            <input type="email" id="email" name="email" value="{{data.email}}">
+
+            <label for="username">Име:</label>
+            <input type="text" id="username" name="username" value="{{data.username}}">
+            <label for="password">Парола:</label>
+            <input type="password" id="password" name="password">
+
+            <label for="repeatPassword">Повтори паролата:</label>
+            <input type="password" id="repeatPassword" name="repeatPassword">
+            <p>Вече имаш акаунт?
+                <a style="color: rgb(47, 129, 154);" href="/login">Влез в акаунта</a>
+            </p>
+            <input type="submit" value="Регистрирай се">
+        </form>
+    </div>
+</main>

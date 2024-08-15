@@ -1,0 +1,82 @@
+{{#with garment}}
+<main>
+  <h1>{{name}}</h1>
+  <hr width="60%" />
+  <br />
+    <img class="detailsImage" src="{{imageUrl}}">
+  <div class="details">
+    <p class="descr"><span>Описание:</span>{{description}}</p>
+    <p><span>Цена:</span>{{price}} лв.</p>
+    <p><span>Цвят:</span>{{color}}</p>
+    <p><span>Създател:</span>{{owner.username}}</p>
+
+    {{#if hasUser}}
+
+    {{#if isAdmin}}
+
+    <form action="/addToCart/{{_id}}" method="POST">
+      <span id="chooseSize" for="choosenSize">Изберете размер:</span>
+      <br />
+      <br />
+
+      <input type="radio" id="LSize" name="choosenSize" value="L">
+      <label id="LSizeLabel" for="LSize">L</label>
+
+      <input type="radio" id="SSize" name="choosenSize" value="S">
+      <label id="SSizeLabel" for="SSize">S</label>
+
+      <input type="radio" id="MSize" name="choosenSize" value="M">
+      <label id="MSizeLabel" for="MSize">M</label>
+      <br />
+      <br />
+      <a class="btn" href="/edit/{{_id}}">Редактирай</a>
+      <a class="btn" href="/delete/product/{{_id}}">Изтрий</a>
+      <input id="addToCartInput" type="submit" value="Добави в количката" />
+    </form>
+
+    {{else}}
+
+    {{#if isOwner}}
+
+    <a class="btn" href="/edit/{{_id}}">Редактирай</a>
+    <a class="btn" href="/delete/product/{{_id}}">Изтрий</a>
+
+    {{else}}
+
+    <form action="/addToCart/{{_id}}" method="POST">
+      <span id="chooseSize" for="choosenSize">Изберете размер:</span>
+      <br />
+      <br />
+
+      <input type="radio" id="LSize" name="choosenSize" value="L">
+      <label id="LSizeLabel" for="LSize">L</label>
+
+      <input type="radio" id="SSize" name="choosenSize" value="S">
+      <label id="SSizeLabel" for="SSize">S</label>
+
+      <input type="radio" id="MSize" name="choosenSize" value="M">
+      <label id="MSizeLabel" for="MSize">M</label>
+      <br />
+      <br />
+      <input id="addToCartInput" type="submit" value="Добави в количката" />
+    </form>
+
+    {{/if}}
+
+    {{/if}}
+    {{else}}
+     <p><span>Размери:</span></p>
+
+      <label id="LSizeLabelNotToChoose" for="LSize">L</label>
+
+     
+      <label id="SSizeLabelNotToChoose" for="SSize">S</label>
+
+     
+      <label id="MSizeLabelNotToChoose" for="MSize">M</label>
+
+    {{/if}}
+
+  </div>
+</main>
+{{/with}}
